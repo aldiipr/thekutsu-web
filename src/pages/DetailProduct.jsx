@@ -42,7 +42,7 @@ const DetailProduct = () => {
                         <h1 className="text-2xl font-bold">{product.name}</h1>
                         <p className="text-gray-600">{product.price}</p>
                     </div>
-                    <button className="bg-black rounded-full text-white w-full md:w-auto px-6 py-2 hover:bg-gray-800 transition self-start">Pesan sekarang</button>
+                    <a href="https://wa.me/6285669706652" className="bg-black rounded-full text-white w-full md:w-auto px-6 py-2 hover:bg-gray-800 transition self-start">Pesan sekarang</a>
                 </div>
             </div>
             <div>
