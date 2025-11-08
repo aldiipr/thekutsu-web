@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import FormUlasan from "../components/FormUlasan";
 
 
 
@@ -10,6 +11,7 @@ const DetailProduct = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
     const [otherProducts, setOtherProducts] = useState([]);
+    const [reviews, setReviews] = useState([]);
 
 
     useEffect(()=> {
@@ -25,10 +27,18 @@ const DetailProduct = () => {
             .filter((p) => p.id !== parseInt(id) && p.available)
             .slice(0, 4);
             setOtherProducts(others);
-        })
+        });
+
+        fetch(`http://localhost:5000/api/reviews/${id}`)
+        .then((res) => res.json())
+        .then((data) => setReviews(data))
+        .catch((err) => console.error("gagal ambil ulasan", err));
+
     }, [id]);
 
     if (!product) return <p className="text-center p-10">Memuat produk...</p>;
+
+   
 
 
     return (
@@ -47,20 +57,21 @@ const DetailProduct = () => {
             </div>
             <div>
                 <h2 className="text-xl font-bold">Ulasan Pembeli</h2>
-                <div className="space-y-2">
-                    <div className="bg-gray-100 p-4 rounded shadow">
-                        <p className="font-semibold">Ari</p>
-                        <p>Sepatu original, pengiriman cepat! Makasih banget!</p>
+                 {reviews.length === 0? (
+                    <p className="text-gray-500 italic">Belum ada ulasan.</p>
+                 ) : (
+                    <div className="space-y-2">
+                        {reviews.map((r) => (
+                            <div key={r.id} className="bg-gray-100 p-4 rounded shadow">
+                                <p className="font-semibold">{r.name} - {r.rating}⭐</p>
+                                <p>{r.comment}</p>
+                            </div>
+                        ))}
                     </div>
-                    <div className="bg-gray-100 p-4 rounded shadow">
-                        <p className="font-semibold">Aryo</p>
-                        <p>Sepatu original, pengiriman cepat! Makasih banget!</p>
-                    </div>
-                    <div className="bg-gray-100 p-4 rounded shadow">
-                        <p className="font-semibold">sentot</p>
-                        <p>Sepatu original, pengiriman cepat! Makasih banget!</p>
-                    </div>
-                </div>
+                 )}
+            </div>
+            <div>
+                <FormUlasan productId={id} />
             </div>
             <div>
                 <h2 className="text-gray-600 text-xl font-semibold">Produk Lainnya</h2>

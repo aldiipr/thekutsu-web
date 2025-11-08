@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const productRoutes = require("./routes/products");
+const reviewRoutes = require("./routes/reviews")
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.json());
 
 
 app.use( productRoutes);
+app.use("/api/reviews", reviewRoutes)
 
 
 app.listen(PORT, () => {
