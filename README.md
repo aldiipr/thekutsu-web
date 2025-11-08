@@ -1,12 +1,47 @@
-# React + Vite
+# The Kutsu Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for "The Kutsu Hunter" sneaker shopping service.  
+Frontend is built with React and Vite, backend with Node.js, Express, and MySQL.  
+Users can browse products, see detailed product pages, and leave reviews. Admins can manage products and reviews.
 
-Currently, two official plugins are available:
+# Features
+- Display a list of sneaker products  
+- Product detail page with user reviews  
+- Review submission form connected to MySQL database  
+- Admin dashboard for product and review management (CRUD)  
+- API backend connecting frontend to database  
+- Responsive design for desktop and mobile
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Tech Stack
+- **Frontend:** React, Vite  
+- **Styling:** Tailwind CSS (or your CSS framework)  
+- **Backend:** Node.js, Express  
+- **Database:** MySQL
 
-## Expanding the ESLint configuration
+# Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Home page**
+![Home Page](./screenshots/home.png)
+
+**Product**
+![Product Page](./screenshots/products.png)
+
+**About**
+![About Page](./screenshots/about.png)
+
+# Installation
+1. Clone the repository: git clone https://github.com/aldiipr/thekutsu-web.git
+
+2. Set backend: cd backend && npm install
+
+3. Set frontend: cd ../frontend && npm install
+
+4. Run the project:
+    - Backend: npm start
+    - Frontend: npm run dev
+
+# Live Demo
+Coming soon
+
+# Author
+Developer by Aldi Priono (https://github.com/aldiipr)
